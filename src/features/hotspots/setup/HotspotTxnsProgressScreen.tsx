@@ -25,6 +25,7 @@ import { getSecureItem } from '../../../utils/secureAccount'
 import { useColors } from '../../../theme/themeHooks'
 import { DebouncedButton } from '../../../components/Button'
 import useMount from '../../../utils/useMount'
+import sleep from '../../../utils/sleep'
 
 type Route = RouteProp<HotspotSetupStackParamList, 'HotspotTxnsProgressScreen'>
 
@@ -82,7 +83,92 @@ const HotspotTxnsProgressScreen = () => {
 
     // check if add gateway needed
     const isOnChain = await hotspotOnChain(hotspotAddress)
-    const onboardingRecord = await getOnboardingRecord(hotspotAddress)
+
+    let onboardingRecord
+    try {
+      onboardingRecord = await getOnboardingRecord(hotspotAddress)
+    } catch (error) {}
+
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+    if (!onboardingRecord) {
+      try {
+        await sleep(3000)
+        onboardingRecord = await getOnboardingRecord(hotspotAddress)
+      } catch (error) {}
+    }
+
+    // const onboardingRecord = await getOnboardingRecord(hotspotAddress)
     if (!onboardingRecord) return
     if (!isOnChain) {
       // if so, construct and publish add gateway

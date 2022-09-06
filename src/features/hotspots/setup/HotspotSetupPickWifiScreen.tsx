@@ -90,7 +90,14 @@ const HotspotSetupPickWifiScreen = () => {
     const token = await getSecureItem('walletLinkToken')
     if (!token) return
     const address = await getAddress()
-    const hotspot = await getHotspotDetails(hotspotAddress)
+    // const hotspot = await getHotspotDetails(hotspotAddress)
+    // Check if hotspot is onboarded
+    let hotspot
+    try {
+      hotspot = await getHotspotDetails(hotspotAddress)
+    } catch (error) {
+      console.log('Hotspot is not onboarded')
+    }
 
     if (hotspot && hotspot.owner === address) {
       navigation.replace('OwnedHotspotErrorScreen')
