@@ -16,7 +16,7 @@ const slides: Array<CarouselItemData> = [
     // Icon,
     imagePath: ImagePath,
   },
-  /* {
+  {
     title: 'hotspot_setup.education.cards.2.title',
     desc: 'hotspot_setup.education.cards.2.subtitle',
     // Icon,
@@ -27,7 +27,19 @@ const slides: Array<CarouselItemData> = [
     desc: 'hotspot_setup.education.cards.3.subtitle',
     // Icon,
     imagePath: ImagePath,
-  }, */
+  },
+  {
+    title: 'hotspot_setup.education.cards.4.title',
+    desc: 'hotspot_setup.education.cards.4.subtitle',
+    // Icon,
+    imagePath: ImagePath,
+  },
+  {
+    title: 'hotspot_setup.education.cards.5.title',
+    desc: 'hotspot_setup.education.cards.5.subtitle',
+    // Icon,
+    imagePath: ImagePath,
+  },
 ]
 
 export default slides

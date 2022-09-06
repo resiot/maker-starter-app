@@ -22,7 +22,7 @@ const ResIOTX1BLE = {
         {
           title: 'Step 2',
           body:
-            'Now turn on your hotspot and wait until the red and yellow LEDs blink together, then tap the "Scan" button to start the hotspot search.',
+            'Now turn on your hotspot and wait until the 3 top LEDs blink together, it takes about 60 seconds since the hotspot is turned on, then tap the "Scan" button to start the hotspot search.',
           button: 'Scan',
         },
         /* {

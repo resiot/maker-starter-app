@@ -156,19 +156,31 @@ export default {
         },
         {
           subtitle:
+            'Hotspots love places where they can see plenty of sky and spaced at least 300 meters away from other Hotspots',
+          title: 'Give me a nice view',
+        },
+        {
+          subtitle:
+            "Hotspots shouldn't hide in a nightstand or bookcase. Put it next to a window instead",
+          title: "Don't hide me",
+        },
+        {
+          subtitle:
+            "Nearby buildings may decrease your Hotspot's coverage for nearby devices",
+          title: 'Buildings may block my signals',
+        },
+        {
+          subtitle:
+            'Try to keep your Hotspots away from metal meshes, which can block radio signals dramatically',
+          title: 'Finally - I hate bug screens!',
+        },
+        {
+          subtitle:
             "Follow the instructions in the next pages and do the requested actions, in each page you'll see only the actions to do in that time. When you conclude a step, go to the next one by pressing the button at the bottom of the page.",
           title: 'Guided process',
         },
-        {
-          subtitle: '[Placeholder]',
-          title: '[Placeholder]',
-        },
-        {
-          subtitle: '[Placeholder]',
-          title: '[Placeholder]',
-        },
       ],
-      title: 'Hotspot X1/X1-LTE',
+      title: 'Hotspot X1/X1-LTE\nPlacing your Hotspot',
     },
     enable_location: {
       cancel: "No thanks, I'll set it up later",
@@ -304,7 +316,7 @@ export default {
     },
   },
   learn: {
-    next: 'Next',
+    next: "I've read the guide",
   },
   more: {
     sections: {
