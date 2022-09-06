@@ -1,24 +1,34 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { SvgProps } from 'react-native-svg'
-import { useColors } from '../theme/themeHooks'
+// import { SvgProps } from 'react-native-svg'
+// import { useColors } from '../theme/themeHooks'
+import { Image } from 'react-native'
 import Box from './Box'
 import Card from './Card'
 import Text from './Text'
+// import { height } from 'src/utils/layout'
+// import { transform } from 'lodash'
+// import { ThemeContext } from '@shopify/restyle/dist/context'
 
 export type CarouselItemData = {
   title: string
   desc: string
-  Icon: React.FC<SvgProps>
+  // Icon: React.FC<SvgProps>
+  imagePath: string
 }
 
 const CarouselItem = ({
-  item: { Icon, title, desc },
+  // item: { Icon, title, desc },
+  item: { imagePath, title, desc },
 }: {
   item: CarouselItemData
 }) => {
-  const { surfaceContrast } = useColors()
+  // const { surfaceContrast } = useColors()
   const { t } = useTranslation()
+  let iconTest
+  if (imagePath === '../assets/images/x1circle.png') {
+    iconTest = require('../assets/images/x1circle.png')
+  }
   return (
     <Card
       marginHorizontal="s"
@@ -34,7 +44,15 @@ const CarouselItem = ({
         justifyContent="center"
         borderRadius="l"
       >
-        <Icon color={surfaceContrast} height={90} />
+        {/* <Icon color={surfaceContrast} height={90} /> */}
+        <Image
+          style={{
+            width: '90%',
+            alignSelf: 'center',
+          }}
+          source={iconTest}
+          resizeMode="contain"
+        />
       </Box>
       <Box
         backgroundColor="surface"

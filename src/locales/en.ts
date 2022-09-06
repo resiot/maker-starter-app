@@ -50,9 +50,8 @@ export default {
     welcome: {
       create_account: 'Create an account on the Helium Network',
       login_with_helium: 'Already have a Helium Wallet?\nTap to get started.',
-      subtitle:
-        'Lorem ipsum <b><errorText>$HNT</errorText></b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      title: 'Welcome\nto Maker App',
+      subtitle: 'With this app you can add your gateway to the Helium Network',
+      title: 'Welcome\nto ResIOT Helium Hotspot',
     },
     linkAccount: {
       stepOne: '1. Download a supported Wallet App',
@@ -101,7 +100,7 @@ export default {
     ok: 'OK',
     scan_again: 'Scan Again',
     search_location: 'Search for an address or place',
-    skip: '[skip button]',
+    skip: 'Skip',
     something_went_wrong: 'Something went wrong',
     understand: 'I understand',
     unknown: 'Unknown',
@@ -151,12 +150,14 @@ export default {
     education: {
       cards: [
         {
-          subtitle: '[Placeholder]',
-          title: '[Placeholder]',
+          subtitle:
+            'Hotspot versions: ResIOT-X1-ETH-1-868-HW, ResIOT-X1-LTE-1-868-HW',
+          title: 'Add hotspot ResIOT X1/X1-LTE',
         },
         {
-          subtitle: '[Placeholder]',
-          title: '[Placeholder]',
+          subtitle:
+            "Follow the instructions in the next pages and do the requested actions, in each page you'll see only the actions to do in that time. When you conclude a step, go to the next one by pressing the button at the bottom of the page.",
+          title: 'Guided process',
         },
         {
           subtitle: '[Placeholder]',
@@ -167,7 +168,7 @@ export default {
           title: '[Placeholder]',
         },
       ],
-      title: '[Your Hotspot\nSetup Instructions]',
+      title: 'Hotspot X1/X1-LTE',
     },
     enable_location: {
       cancel: "No thanks, I'll set it up later",
@@ -240,7 +241,7 @@ export default {
       },
       alert_no_permissions: {
         body:
-          'MakerApp needs permission to use Bluetooth. You can enable Bluetooth permission in Settings.',
+          'ResIOT Helium Hotspot needs permission to use Bluetooth. You can enable Bluetooth permission in Settings.',
         title: 'Authorize Bluetooth',
       },
       scan: 'Scan for my Hotspot',
@@ -257,7 +258,7 @@ export default {
       title: 'REGISTERING HOTSPOT',
     },
     selection: {
-      subtitle: '[Placeholder instructions]',
+      subtitle: 'Add your hotspot using BLE',
       title: 'Add\nyour Hotspot.',
     },
     skip_location: {
@@ -293,17 +294,17 @@ export default {
     view_activity: 'After adding a Hotspot, you can view your account on the ',
     explorer: 'Helium Explorer',
     empty: {
-      body: 'Your add hotspot\ninstructions',
+      body: 'Tap on "Add Hotspot" to add \nyour first Hotspot',
       hotspots: {
         add: 'Add Hotspot',
         assertLocation: 'Assert Location',
         transfer: 'Transfer Hotspot',
       },
-      title: 'Add a\n[Placeholder] Miner',
+      title: 'Add a\nResIOT Hotspot Miner',
     },
   },
   learn: {
-    next: '[next button]',
+    next: 'Next',
   },
   more: {
     sections: {
@@ -351,7 +352,7 @@ export default {
   permissions: {
     location: {
       message:
-        'MakerApp needs access to your location for Bluetooth discovery and to enable location assertion. This information will never be sold or shared.',
+        'ResIOT Helium Hotspot needs access to your location for Bluetooth discovery and to enable location assertion. This information will never be sold or shared.',
       title: 'Location Permission',
     },
   },

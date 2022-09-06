@@ -73,12 +73,13 @@ const palette = {
   bobcatRed: '#EE2737',
   bobcatDarkGrey: '#333333',
   bobcatGrey: '#aeaeae',
+  resiotBlue: '#122e61',
 }
 
 export const lightThemeColors = {
   ...palette,
 
-  primary: palette.bobcatRed,
+  /* primary: palette.bobcatRed,
   primaryBackground: palette.white,
   primaryText: palette.black,
   secondaryBackground: palette.offWhite,
@@ -90,13 +91,27 @@ export const lightThemeColors = {
   surfaceSecondary: palette.offWhite,
   surfaceSecondaryText: palette.bobcatDarkGrey,
   surfaceContrast: palette.bobcatDarkGrey,
-  surfaceContrastText: palette.white,
+  surfaceContrastText: palette.white, */
+
+  primary: palette.bobcatRed,
+  primaryBackground: palette.resiotBlue,
+  primaryText: palette.white,
+  secondaryBackground: palette.bobcatDarkGrey,
+  secondary: palette.bobcatDarkGrey,
+  secondaryText: palette.white,
+  error: palette.bobcatRed,
+  surface: palette.bobcatDarkGrey,
+  surfaceText: palette.white,
+  surfaceSecondary: palette.offWhite,
+  surfaceSecondaryText: palette.bobcatDarkGrey,
+  surfaceContrast: palette.white,
+  surfaceContrastText: palette.bobcatDarkGrey,
 }
 export const darkThemeColors = {
   ...palette,
 
   primary: palette.bobcatRed,
-  primaryBackground: palette.black,
+  primaryBackground: palette.resiotBlue,
   primaryText: palette.white,
   secondaryBackground: palette.bobcatDarkGrey,
   secondary: palette.bobcatDarkGrey,

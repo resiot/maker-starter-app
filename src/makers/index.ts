@@ -1,19 +1,24 @@
-import example from './example'
-import customAntennas from './custom/antennas'
+// import example from './example'
+// import customAntennas from './custom/antennas'
+import resiot from './resiot'
+import resiotAntennas from './resiot/antennas'
 import { LangType, supportedLangs } from '../utils/i18n/i18nTypes'
 import { HotspotMakerLangField } from './hotspotMakerTypes'
 
 export const Makers: Record<string, { id: number; supportEmail: string }> = {
-  example,
+  // example,
+  resiot,
 }
 
 export const AntennaModels = {
-  ...example.antennas,
-  ...customAntennas,
+  // ...example.antennas,
+  // ...customAntennas,
+  ...resiotAntennas,
 }
 
 export const HotspotMakerModels = {
-  ...example.hotspots,
+  // ...example.hotspots,
+  ...resiot.hotspots,
 }
 
 export type HotspotType = keyof typeof HotspotMakerModels
@@ -35,6 +40,7 @@ export const getTranslations = () => {
     ko: {} as MakerLangType,
     zh: {} as MakerLangType,
     ja: {} as MakerLangType,
+    // it: {} as MakerLangType,
   }
 
   supportedLangs.forEach((l) => {
