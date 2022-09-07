@@ -51,7 +51,8 @@ export default {
       create_account: 'Create an account on the Helium Network',
       login_with_helium: 'Already have a Helium Wallet?\nTap to get started.',
       subtitle: 'With this app you can add your gateway to the Helium Network',
-      title: 'Welcome\nto ResIOT Helium Hotspot',
+      title: 'Welcome to\nResIOT app',
+      // title: 'Welcome\nto ResIOT Helium Hotspot',
     },
     linkAccount: {
       stepOne: '1. Download a supported Wallet App',
