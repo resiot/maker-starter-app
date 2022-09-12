@@ -93,6 +93,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.3",
     "react-native-localize": "^1.4.3",
     "react-native-navigation-bar-color": "^2.0.1",
+    "react-native-permissions": "^3.6.1",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",

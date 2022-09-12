@@ -21,6 +21,7 @@ import {
   HotspotBleProvider,
   OnboardingProvider,
 } from '@helium/react-native-sdk'
+import { request, PERMISSIONS } from 'react-native-permissions'
 import { theme, darkThemeColors, lightThemeColors } from './theme/theme'
 import NavigationRoot from './navigation/NavigationRoot'
 import { useAppDispatch } from './store/store'
@@ -30,6 +31,7 @@ import SecurityScreen from './features/security/SecurityScreen'
 import AppLinkProvider from './providers/AppLinkProvider'
 import { navigationRef } from './navigation/navigator'
 import useMount from './utils/useMount'
+// you may also import just the functions or constants that you will use from this library
 
 SplashScreen.preventAutoHideAsync().catch(() => {
   /* reloading the app might trigger some race conditions, ignore them */
@@ -75,6 +77,23 @@ const App = () => {
   useEffect(() => {
     MapboxGL.setAccessToken(Config.MAPBOX_ACCESS_TOKEN)
   }, [dispatch])
+
+  request(
+    Platform.OS === 'ios'
+      ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+      : PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
+  ).then((result) => {
+    // setPermissionResult(result)
+    console.log(result)
+  })
+  request(
+    Platform.OS === 'ios'
+      ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+      : PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
+  ).then((result) => {
+    // setPermissionResult(result)
+    console.log(result)
+  })
 
   // handle app state changes
   useEffect(() => {
