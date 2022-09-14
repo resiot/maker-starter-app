@@ -368,6 +368,16 @@ export default {
         'ResIOT Helium Hotspot needs access to your location for Bluetooth discovery and to enable location assertion. This information will never be sold or shared.',
       title: 'Location Permission',
     },
+    bluetooth: {
+      message:
+        'ResIOT Helium Hotspot needs access to nearby devices for Bluetooth discovery and connection. This information will never be sold or shared.',
+      title: 'Nearby Devices Permission',
+    },
+    bluetooth_not_granted: {
+      message:
+        'ResIOT Helium Hotspot cannot work without access to nearby devices. Please go back and give this permission.',
+      title: 'Nearby Devices Permission not granted',
+    },
   },
   wallet: {
     copiedToClipboard: 'Copied {{address}} to clipboard',

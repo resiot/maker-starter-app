@@ -3,6 +3,9 @@ import React, { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native-gesture-handler'
 import { Edge } from 'react-native-safe-area-context'
+import { useAsync } from 'react-async-hook'
+import { request, PERMISSIONS, RESULTS, check } from 'react-native-permissions'
+import { Platform } from 'react-native'
 import BackScreen from '../../../components/BackScreen'
 import Box from '../../../components/Box'
 import Text from '../../../components/Text'
@@ -17,6 +20,8 @@ import {
   HotspotMakerModels,
 } from '../../../makers'
 import { useBorderRadii } from '../../../theme/themeHooks'
+
+import useAlert from '../../../utils/useAlert'
 
 const ItemSeparatorComponent = () => (
   <Box height={1} backgroundColor="primaryBackground" />
@@ -33,6 +38,8 @@ const HotspotSetupSelectionScreen = () => {
   const radii = useBorderRadii()
 
   const { params } = useRoute<Route>()
+
+  const { showOKAlert, showOKCancelAlert } = useAlert()
 
   const handlePress = useCallback(
     (hotspotType: HotspotType) => () => {
@@ -77,6 +84,62 @@ const HotspotSetupSelectionScreen = () => {
   const flatListStyle = useMemo(() => {
     return { flex: 1, borderRadius: radii.m }
   }, [radii.m])
+
+  useAsync(async () => {
+    let showMyAlert = true
+    const resultTest = await check(
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+        : PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
+    )
+    if (resultTest === RESULTS.GRANTED) {
+      const resultTest2 = await check(
+        Platform.OS === 'ios'
+          ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+          : PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
+      )
+      if (resultTest2 === RESULTS.GRANTED) {
+        showMyAlert = false
+      }
+    }
+
+    if (showMyAlert) {
+      const decision = await showOKCancelAlert({
+        titleKey: 'permissions.bluetooth.title',
+        messageKey: 'permissions.bluetooth.message',
+      })
+      if (!decision) {
+        await showOKAlert({
+          titleKey: 'permissions.bluetooth_not_granted.title',
+          messageKey: 'permissions.bluetooth_not_granted.message',
+        })
+        return
+      }
+    }
+
+    await request(
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+        : PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
+    ).then((result) => {
+      // setPermissionResult(result)
+      console.log(result)
+      if (result !== RESULTS.GRANTED) {
+        showOKAlert({
+          titleKey: 'permissions.bluetooth_not_granted.title',
+          messageKey: 'permissions.bluetooth_not_granted.message',
+        })
+      }
+    })
+    await request(
+      Platform.OS === 'ios'
+        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+        : PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
+    ).then((result) => {
+      // setPermissionResult(result)
+      console.log(result)
+    })
+  }, [])
 
   return (
     <BackScreen

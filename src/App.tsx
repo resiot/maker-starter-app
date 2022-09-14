@@ -21,7 +21,6 @@ import {
   HotspotBleProvider,
   OnboardingProvider,
 } from '@helium/react-native-sdk'
-import { request, PERMISSIONS } from 'react-native-permissions'
 import { theme, darkThemeColors, lightThemeColors } from './theme/theme'
 import NavigationRoot from './navigation/NavigationRoot'
 import { useAppDispatch } from './store/store'
@@ -77,23 +76,6 @@ const App = () => {
   useEffect(() => {
     MapboxGL.setAccessToken(Config.MAPBOX_ACCESS_TOKEN)
   }, [dispatch])
-
-  request(
-    Platform.OS === 'ios'
-      ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-      : PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
-  ).then((result) => {
-    // setPermissionResult(result)
-    console.log(result)
-  })
-  request(
-    Platform.OS === 'ios'
-      ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-      : PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
-  ).then((result) => {
-    // setPermissionResult(result)
-    console.log(result)
-  })
 
   // handle app state changes
   useEffect(() => {
