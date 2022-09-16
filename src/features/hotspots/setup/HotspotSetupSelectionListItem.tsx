@@ -1,4 +1,5 @@
 import React, { useState, memo, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import Box from '../../../components/Box'
 import { DebouncedTouchableHighlightBox } from '../../../components/TouchableHighlightBox'
 import { useColors } from '../../../theme/themeHooks'
@@ -17,6 +18,7 @@ const HotspotSetupSelectionListItem = ({
   hotspotType,
   onPress,
 }: Props) => {
+  const { t } = useTranslation()
   const colors = useColors()
   const [pressing, setPressing] = useState<boolean>()
   const svgColor = pressing ? colors.primary : colors.surfaceText
@@ -60,7 +62,8 @@ const HotspotSetupSelectionListItem = ({
           adjustsFontSizeToFit
           maxFontSizeMultiplier={1.1}
         >
-          {HotspotMakerModels[hotspotType].name}
+          {/* HotspotMakerModels[hotspotType].name */}
+          {t(`makerHotspot.${hotspotType}.name`)}
         </Text>
       </>
     </DebouncedTouchableHighlightBox>

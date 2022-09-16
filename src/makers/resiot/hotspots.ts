@@ -6,7 +6,7 @@ import ANTENNAS from './antennas'
 
 const ResIOTX1BLE = {
   // name: 'Example Hotspot BLE',
-  name: 'Add Hotspot ResIOT X1',
+  // name: 'Add Hotspot ResIOT X1',
   icon: BluetoothIcon,
   onboardType: 'BLE',
   translations: {
@@ -25,24 +25,18 @@ const ResIOTX1BLE = {
             'Now turn on your hotspot and wait until the 3 top LEDs blink together, it takes about 60 seconds since the hotspot is turned on, then tap the "Scan" button to start the hotspot search.',
           button: 'Scan',
         },
-        /* {
-          title: '[title page 3/3]',
-          body:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          button: '[finish button]',
-        }, */
       ],
     },
     ja: {},
     ko: {},
     zh: {},
-    /* it: {
+    it: {
       name: 'Aggiungi Hotspot ResIOT X1',
       internal: [
         {
           title: 'Step 1',
           body:
-            'Se il tuo hotspot è spento, vai allo step successivo. Se il tuo hotspot è acceso, spegnilo rimuovendo l\'alimentazione e attendi 10 secondi.',
+            "Se il tuo hotspot è spento, vai allo step successivo. Se il tuo hotspot è acceso, spegnilo rimuovendo l'alimentazione e attendi 10 secondi.",
           button: 'Avanti',
         },
         {
@@ -52,7 +46,7 @@ const ResIOTX1BLE = {
           button: 'Scansiona',
         },
       ],
-    }, */
+    },
   },
   antenna: {
     // us: ANTENNAS.EXAMPLE_US,

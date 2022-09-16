@@ -92,8 +92,10 @@ const HeliumActionSheet = ({
   )
 
   useEffect(() => {
+    /* let nextSheetHeight =
+      data.length * HeliumActionSheetItemHeight + 156 + (insets?.bottom || 0) */
     let nextSheetHeight =
-      data.length * HeliumActionSheetItemHeight + 156 + (insets?.bottom || 0)
+      data.length * HeliumActionSheetItemHeight + 206 + (insets?.bottom || 0)
     if (maxModalHeight && nextSheetHeight > maxModalHeight) {
       nextSheetHeight = maxModalHeight
     }
@@ -302,7 +304,8 @@ const HeliumActionSheet = ({
 
 const styles = StyleSheet.create({
   cancelContainer: { backgroundColor: '#F0F0F5' },
-  cancelText: { color: '#B3B4D6' },
+  // cancelText: { color: '#B3B4D6' },
+  cancelText: { color: '#000000' },
   divider: { borderBottomColor: '#F0F0F5' },
 })
 

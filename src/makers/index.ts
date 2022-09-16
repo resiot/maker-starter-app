@@ -40,7 +40,7 @@ export const getTranslations = () => {
     ko: {} as MakerLangType,
     zh: {} as MakerLangType,
     ja: {} as MakerLangType,
-    // it: {} as MakerLangType,
+    it: {} as MakerLangType,
   }
 
   supportedLangs.forEach((l) => {

@@ -375,7 +375,7 @@ export default {
     },
     bluetooth_not_granted: {
       message:
-        'ResIOT Helium Hotspot cannot work without access to nearby devices. Please go back and give this permission.',
+        'ResIOT Helium Hotspot cannot work without access to nearby devices. Please uninstall the app, reinstall it and give this permission.',
       title: 'Nearby Devices Permission not granted',
     },
   },

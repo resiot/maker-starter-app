@@ -147,7 +147,7 @@ def getVersionCode = { ->
             return versionCodeOffset + appcenterBuildId
         } catch (ignored) {}
     }
-    return 4400002 // default higher for local builds - app center is 4300000 + build number
+    return 4400003 // default higher for local builds - app center is 4300000 + build number
 }
 
 def getNpmVersion() {

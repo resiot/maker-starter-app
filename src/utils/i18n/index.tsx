@@ -6,6 +6,7 @@ import en from '../../locales/en'
 import ko from '../../locales/ko'
 import ja from '../../locales/ja'
 import zh from '../../locales/zh'
+import it from '../../locales/it'
 import { getSecureItem, setSecureItem } from '../secureAccount'
 import { getTranslations } from '../../makers'
 
@@ -32,6 +33,7 @@ i18n.use(initReactI18next).init({
     en: { translation: { ...en, makerHotspot: hotspotMakerTranslations.en } },
     zh: { translation: { ...zh, makerHotspot: hotspotMakerTranslations.zh } },
     ja: { translation: { ...ja, makerHotspot: hotspotMakerTranslations.ko } },
+    it: { translation: { ...it, makerHotspot: hotspotMakerTranslations.it } },
   },
   lng: phoneLang,
   fallbackLng: ['en'],
