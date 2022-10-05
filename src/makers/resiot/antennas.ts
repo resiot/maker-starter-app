@@ -15,4 +15,26 @@ const OUTDOOR80_EU = {
   gain: 8,
 } as MakerAntenna
 
-export default { STANDARD_EU, OUTDOOR68_EU, OUTDOOR80_EU }
+const OUTDOOR100_EU = {
+  name: 'Outdoor 10dBi (EU 868)',
+  gain: 10,
+} as MakerAntenna
+
+const OUTDOOR120_EU = {
+  name: 'Outdoor 12dBi (EU 868)',
+  gain: 12,
+} as MakerAntenna
+
+const OUTDOOR150_EU = {
+  name: 'Outdoor 15dBi (EU 868)',
+  gain: 15,
+} as MakerAntenna
+
+export default {
+  STANDARD_EU,
+  OUTDOOR68_EU,
+  OUTDOOR80_EU,
+  OUTDOOR100_EU,
+  OUTDOOR120_EU,
+  OUTDOOR150_EU,
+}

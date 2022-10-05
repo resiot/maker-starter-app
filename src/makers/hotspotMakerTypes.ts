@@ -18,9 +18,12 @@ export type MakerHotspot = {
   name: string
   antenna?: {
     us?: MakerAntenna
-    external68?: MakerAntenna
     default: MakerAntenna
+    external68?: MakerAntenna
     external80?: MakerAntenna
+    external100?: MakerAntenna
+    external120?: MakerAntenna
+    external150?: MakerAntenna
   }
   onboardType: OnboardType
   onboardUrl?: string
