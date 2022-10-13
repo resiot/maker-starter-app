@@ -1,24 +1,24 @@
-// import example from './example'
+import example from './example'
 // import customAntennas from './custom/antennas'
-import resiot from './resiot'
-import resiotAntennas from './resiot/antennas'
+// import resiot from './resiot'
+// import resiotAntennas from './resiot/antennas'
 import { LangType, supportedLangs } from '../utils/i18n/i18nTypes'
 import { HotspotMakerLangField } from './hotspotMakerTypes'
 
 export const Makers: Record<string, { id: number; supportEmail: string }> = {
-  // example,
-  resiot,
+  example,
+  // resiot,
 }
 
 export const AntennaModels = {
-  // ...example.antennas,
+  ...example.antennas,
   // ...customAntennas,
-  ...resiotAntennas,
+  // ...resiotAntennas,
 }
 
 export const HotspotMakerModels = {
-  // ...example.hotspots,
-  ...resiot.hotspots,
+  ...example.hotspots,
+  // ...resiot.hotspots,
 }
 
 export type HotspotType = keyof typeof HotspotMakerModels

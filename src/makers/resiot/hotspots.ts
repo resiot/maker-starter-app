@@ -50,11 +50,11 @@ const ResIOTX1BLE = {
   },
   antenna: {
     // us: ANTENNAS.EXAMPLE_US,
-    external68: ANTENNAS.OUTDOOR68_EU,
+    /* external68: ANTENNAS.OUTDOOR68_EU,
     external80: ANTENNAS.OUTDOOR80_EU,
     external100: ANTENNAS.OUTDOOR100_EU,
     external120: ANTENNAS.OUTDOOR120_EU,
-    external150: ANTENNAS.OUTDOOR150_EU,
+    external150: ANTENNAS.OUTDOOR150_EU, */
     default: ANTENNAS.STANDARD_EU,
   },
 } as MakerHotspot

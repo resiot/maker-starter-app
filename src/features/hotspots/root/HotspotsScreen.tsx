@@ -3,21 +3,78 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { useTranslation } from 'react-i18next'
 import { useNavigation } from '@react-navigation/native'
 import AddIcon from '@assets/images/add.svg'
-import { Linking } from 'react-native'
+import { Linking, Platform } from 'react-native'
 import { useAsync } from 'react-async-hook'
+import { useHotspotBle } from '@helium/react-native-sdk'
+import { useSelector } from 'react-redux'
 import Box from '../../../components/Box'
 import Text from '../../../components/Text'
 import Button from '../../../components/Button'
 import { RootNavigationProp } from '../../../navigation/main/tabTypes'
 import { EXPLORER_BASE_URL } from '../../../utils/config'
 import { getAddress } from '../../../utils/secureAccount'
+import useAlert from '../../../utils/useAlert'
+import { RootState } from '../../../store/rootReducer'
+import usePermissionManager from '../../../utils/usePermissionManager'
 
 const HotspotsScreen = () => {
   const { t } = useTranslation()
   const navigation = useNavigation<RootNavigationProp>()
   const [accountAddress, setAccountAddress] = useState('')
+  const { enable, getState } = useHotspotBle()
+  const { showOKCancelAlert } = useAlert()
+  const { requestLocationPermission } = usePermissionManager()
+  const { permissionResponse } = useSelector(
+    (state: RootState) => state.location,
+  )
+
+  const checkBluetooth = useCallback(async () => {
+    const state = await getState()
+
+    if (state === 'PoweredOn') {
+      return true
+    }
+
+    if (Platform.OS === 'ios') {
+      if (state === 'PoweredOff') {
+        const decision = await showOKCancelAlert({
+          titleKey: 'hotspot_setup.pair.alert_ble_off.title',
+          messageKey: 'hotspot_setup.pair.alert_ble_off.body',
+          okKey: 'generic.go_to_settings',
+        })
+        if (decision) Linking.openURL('App-Prefs:Bluetooth')
+      } else {
+        const decision = await showOKCancelAlert({
+          titleKey: 'hotspot_setup.pair.alert_ble_off.title',
+          messageKey: 'hotspot_setup.pair.alert_ble_off.body',
+          okKey: 'generic.go_to_settings',
+        })
+        if (decision) Linking.openURL('app-settings:')
+      }
+    }
+    if (Platform.OS === 'android') {
+      await enable()
+      return true
+    }
+  }, [enable, getState, showOKCancelAlert])
+
+  const checkLocation = useCallback(async () => {
+    if (Platform.OS === 'ios') return true
+
+    if (permissionResponse?.granted) {
+      return true
+    }
+
+    const response = await requestLocationPermission()
+
+    if (response && response.granted) {
+      return true
+    }
+  }, [permissionResponse?.granted, requestLocationPermission])
 
   useAsync(async () => {
+    await checkBluetooth()
+    await checkLocation()
     const account = await getAddress()
     setAccountAddress(account || '')
   }, [])

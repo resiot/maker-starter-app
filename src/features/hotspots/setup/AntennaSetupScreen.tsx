@@ -30,14 +30,16 @@ const AntennaSetupScreen = () => {
   const defaultAntenna = useMemo(() => {
     const country = getCountry()
     const isUS = country === 'US'
-    const makerAntenna =
-      HotspotMakerModels[params.hotspotType || 'ExampleHotspotBLE'].antenna
+    // const makerAntenna =
+    //  HotspotMakerModels[params.hotspotType || 'ExampleHotspotBLE'].antenna
+    const makerAntenna = HotspotMakerModels[params.hotspotType].antenna
     const ant =
       isUS && makerAntenna?.us ? makerAntenna.us : makerAntenna?.default
 
+    /* if (!ant)
+      return isUS ? Example.antennas.EXAMPLE_US : Example.antennas.EXAMPLE_US */
     if (!ant)
-      return isUS ? Example.antennas.EXAMPLE_US : Example.antennas.EXAMPLE_US
-
+      return isUS ? Example.antennas.EXAMPLE_EU : Example.antennas.EXAMPLE_EU
     return ant
   }, [params.hotspotType])
 
