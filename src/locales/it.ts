@@ -269,7 +269,7 @@ export default {
     progress: {
       next: 'Vai al Wallet',
       subtitle:
-        'Ci possono volere alcuni minuti quindi se vuoi puoi chiudere questa schermata.',
+        "Ci possono volere alcuni minuti quindi se vuoi puoi chiudere questa schermata. Se entro 30 minuti l'hotspot non viene registrato in rete si prega di rifare l'intera procedura.",
       title: 'REGISTRAZIONE HOTSPOT',
     },
     selection: {
@@ -277,7 +277,7 @@ export default {
       title: 'Aggiungi\nil tuo Hotspot.',
     },
     skip_location: {
-      subtitle_1: 'Hai deciso diconfermare la posizione in seguito.',
+      subtitle_1: 'Hai deciso di confermare la posizione in seguito.',
       subtitle_2: 'Aggiorna la tua posizione in seguito dalle impostazioni.',
       title: 'Aggiungi Hotspot',
     },

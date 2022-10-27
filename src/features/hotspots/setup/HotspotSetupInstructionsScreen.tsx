@@ -1,7 +1,7 @@
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
 import React, { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Linking, Platform, ScrollView, StyleSheet } from 'react-native'
+import { Image, Linking, Platform, ScrollView, StyleSheet } from 'react-native'
 import { useHotspotBle } from '@helium/react-native-sdk'
 import { useSelector } from 'react-redux'
 import BackScreen from '../../../components/BackScreen'
@@ -137,7 +137,7 @@ const HotspotSetupDiagnosticsScreen = () => {
   return (
     <BackScreen backgroundColor="primaryBackground" onClose={handleClose}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Box alignItems="center">
+        <Box alignItems="center" style={{ marginBottom: 20 }}>
           <Text
             variant="h1"
             numberOfLines={1}
@@ -154,7 +154,43 @@ const HotspotSetupDiagnosticsScreen = () => {
             i18nKey={t(
               `makerHotspot.${hotspotType}.internal.${slideIndex}.body`,
             )}
+            fontSize={18}
           />
+          <Box style={{ flexDirection: 'row' }}>
+            {slideIndex === 0 && (
+              <Image
+                style={{
+                  width: 140,
+                  height: 100,
+                  marginBottom: 20,
+                  marginTop: 10,
+                  marginRight: 5,
+                }}
+                resizeMode="contain"
+                source={require('../../../makers/example/wificonnect.png')}
+              />
+            )}
+            {slideIndex === 0 && (
+              <Image
+                style={{
+                  width: 140,
+                  height: 100,
+                  marginBottom: 20,
+                  marginTop: 10,
+                }}
+                resizeMode="contain"
+                source={require('../../../makers/example/ethconnect.png')}
+              />
+            )}
+          </Box>
+
+          {slideIndex === 1 && (
+            <Image
+              style={{ width: 280, height: 200, marginBottom: 20 }}
+              resizeMode="contain"
+              source={require('../../../makers/example/gif_half.gif')}
+            />
+          )}
         </Box>
       </ScrollView>
       <DebouncedButton

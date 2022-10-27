@@ -267,7 +267,7 @@ export default {
     progress: {
       next: 'Go to Wallet',
       subtitle:
-        'This can take a few minutes so feel free to close this screen.',
+        'This can take a few minutes so feel free to close this screen. If the hotspot is not registered on the network within 30 minutes, please repeat the whole procedure.',
       title: 'REGISTERING HOTSPOT',
     },
     selection: {

@@ -7,6 +7,7 @@ import { Linking, Platform } from 'react-native'
 import { useAsync } from 'react-async-hook'
 import { useHotspotBle } from '@helium/react-native-sdk'
 import { useSelector } from 'react-redux'
+import { check, PERMISSIONS, RESULTS } from 'react-native-permissions'
 import Box from '../../../components/Box'
 import Text from '../../../components/Text'
 import Button from '../../../components/Button'
@@ -53,8 +54,11 @@ const HotspotsScreen = () => {
       }
     }
     if (Platform.OS === 'android') {
-      await enable()
-      return true
+      const resultTest2 = await check(PERMISSIONS.ANDROID.BLUETOOTH_CONNECT)
+      if (resultTest2 === RESULTS.GRANTED) {
+        await enable()
+        return true
+      }
     }
   }, [enable, getState, showOKCancelAlert])
 
