@@ -25,20 +25,16 @@ const HotspotSetupScanningScreen = () => {
 
   useAsync(async () => {
     let showMyAlert = true
-    const resultTest = await check(
-      Platform.OS === 'ios'
-        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-        : PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
-    )
-    if (resultTest === RESULTS.GRANTED) {
-      const resultTest2 = await check(
-        Platform.OS === 'ios'
-          ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-          : PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
-      )
-      if (resultTest2 === RESULTS.GRANTED) {
-        showMyAlert = false
+    if (Platform.OS === 'android' && Platform.Version >= 31) {
+      const resultTest = await check(PERMISSIONS.ANDROID.BLUETOOTH_SCAN)
+      if (resultTest === RESULTS.GRANTED) {
+        const resultTest2 = await check(PERMISSIONS.ANDROID.BLUETOOTH_CONNECT)
+        if (resultTest2 === RESULTS.GRANTED) {
+          showMyAlert = false
+        }
       }
+    } else {
+      showMyAlert = false
     }
 
     if (showMyAlert) {
@@ -55,28 +51,22 @@ const HotspotSetupScanningScreen = () => {
       }
     }
 
-    await request(
-      Platform.OS === 'ios'
-        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-        : PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
-    ).then((result) => {
-      // setPermissionResult(result)
-      console.log(result)
-      if (result !== RESULTS.GRANTED) {
-        showOKAlert({
-          titleKey: 'permissions.bluetooth_not_granted.title',
-          messageKey: 'permissions.bluetooth_not_granted.message',
-        })
-      }
-    })
-    await request(
-      Platform.OS === 'ios'
-        ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
-        : PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
-    ).then((result) => {
-      // setPermissionResult(result)
-      console.log(result)
-    })
+    if (Platform.OS === 'android' && Platform.Version >= 31) {
+      await request(PERMISSIONS.ANDROID.BLUETOOTH_SCAN).then((result) => {
+        // setPermissionResult(result)
+        console.log(result)
+        if (result !== RESULTS.GRANTED) {
+          showOKAlert({
+            titleKey: 'permissions.bluetooth_not_granted.title',
+            messageKey: 'permissions.bluetooth_not_granted.message',
+          })
+        }
+      })
+      await request(PERMISSIONS.ANDROID.BLUETOOTH_CONNECT).then((result) => {
+        // setPermissionResult(result)
+        console.log(result)
+      })
+    }
   }, [])
 
   const { t } = useTranslation()

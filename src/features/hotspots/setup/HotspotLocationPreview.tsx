@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import MapboxGL from '@react-native-mapbox-gl/maps'
-import Config from 'react-native-config'
+// import Config from 'react-native-config'
 import LocationIcon from '@assets/images/location-icon.svg'
 import Box from '../../../components/Box'
 import Text from '../../../components/Text'
@@ -70,7 +70,8 @@ const HotspotLocationPreview = ({
       <MapboxGL.MapView
         ref={map}
         style={{ height: hasLocationName ? '75%' : '100%' }}
-        styleURL={Config.MAPBOX_STYLE_URL}
+        // styleURL={Config.MAPBOX_STYLE_URL}
+        styleURL="mapbox://styles/mapbox/streets-v11"
         logoEnabled={false}
         rotateEnabled={movable}
         pitchEnabled={movable}

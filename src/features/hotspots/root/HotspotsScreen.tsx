@@ -53,7 +53,7 @@ const HotspotsScreen = () => {
         if (decision) Linking.openURL('app-settings:')
       }
     }
-    if (Platform.OS === 'android') {
+    if (Platform.OS === 'android' && Platform.Version >= 31) {
       const resultTest2 = await check(PERMISSIONS.ANDROID.BLUETOOTH_CONNECT)
       if (resultTest2 === RESULTS.GRANTED) {
         await enable()
@@ -83,13 +83,15 @@ const HotspotsScreen = () => {
     setAccountAddress(account || '')
   }, [])
 
-  const addHotspot = useCallback(() => navigation.push('HotspotSetup'), [
-    navigation,
-  ])
+  const addHotspot = useCallback(
+    () => navigation.push('HotspotSetup'),
+    [navigation],
+  )
 
-  const assertHotspot = useCallback(() => navigation.push('HotspotAssert'), [
-    navigation,
-  ])
+  const assertHotspot = useCallback(
+    () => navigation.push('HotspotAssert'),
+    [navigation],
+  )
 
   const transferHotspot = useCallback(
     () => navigation.push('TransferHotspot'),

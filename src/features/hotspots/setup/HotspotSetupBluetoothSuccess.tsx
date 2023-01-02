@@ -75,11 +75,13 @@ const HotspotSetupBluetoothSuccess = () => {
         // check firmware
         const minFirmware = await getMinFirmware()
         if (!minFirmware) return
+        /*
         const firmwareDetails = await checkFirmwareCurrent(minFirmware)
         if (!firmwareDetails.current) {
           navigation.navigate('FirmwareUpdateNeededScreen', firmwareDetails)
           return
         }
+        */
 
         // scan for wifi networks
         const networks = uniq((await readWifiNetworks(false)) || [])

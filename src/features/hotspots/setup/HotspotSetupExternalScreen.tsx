@@ -5,7 +5,7 @@ import Icon from '@assets/images/placeholder.svg'
 import {
   BarCodeScanner,
   BarCodeScannerResult,
-  usePermissions,
+  // usePermissions,
 } from 'expo-barcode-scanner'
 import { Camera } from 'expo-camera'
 import { useDebouncedCallback } from 'use-debounce/lib'
@@ -37,7 +37,7 @@ const HotspotSetupExternalScreen = () => {
   const { triggerNotification } = useHaptic()
   const navigation = useNavigation<RootNavigationProp>()
 
-  const [perms] = usePermissions({
+  const [perms] = BarCodeScanner.usePermissions({
     request: true,
   })
 
@@ -50,9 +50,10 @@ const HotspotSetupExternalScreen = () => {
     [params.hotspotType],
   )
 
-  const handleClose = useCallback(() => navigation.navigate('MainTabs'), [
-    navigation,
-  ])
+  const handleClose = useCallback(
+    () => navigation.navigate('MainTabs'),
+    [navigation],
+  )
 
   const handleBarCodeScanned = useDebouncedCallback(
     (result: BarCodeScannerResult) => {

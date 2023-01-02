@@ -18,7 +18,7 @@ import { BoxProps } from '@shopify/restyle'
 import { StyleProp, ViewStyle } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { h3ToGeo } from 'h3-js'
-import Config from 'react-native-config'
+// import Config from 'react-native-config'
 import { isFinite } from 'lodash'
 import LocationIcon from '@assets/images/location-icon.svg'
 import Box from './Box'
@@ -130,9 +130,10 @@ const Map = ({
     setLoaded(true)
   }, [])
 
-  const selectedHex = useMemo(() => selectedHotspot?.locationHex, [
-    selectedHotspot?.locationHex,
-  ])
+  const selectedHex = useMemo(
+    () => selectedHotspot?.locationHex,
+    [selectedHotspot?.locationHex],
+  )
 
   useEffect(() => {
     if (loaded && userCoords) {
@@ -230,7 +231,8 @@ const Map = ({
         onRegionDidChange={onRegionDidChange}
         onRegionWillChange={onMapMoving}
         onDidFinishLoadingMap={onDidFinishLoad}
-        styleURL={Config.MAPBOX_STYLE_URL}
+        // styleURL={Config.MAPBOX_STYLE_URL}
+        styleURL="mapbox://styles/mapbox/streets-v11"
         style={styles.map}
         logoEnabled={false}
         rotateEnabled={false}
