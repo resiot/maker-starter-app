@@ -65,13 +65,11 @@ export default {
   },
   antennas: {
     elevation_info: {
-      desc:
-        "Stimare quanto in alto è posizionata l'antenna rispetto al suolo. Un'antenna situata sul tetto di una casa a un piano è in genere di 5 metri.",
+      desc: "Stimare quanto in alto è posizionata l'antenna rispetto al suolo. Un'antenna situata sul tetto di una casa a un piano è in genere di 5 metri.",
       title: 'Altezza Hotspot',
     },
     gain_info: {
-      desc:
-        "Un valore compreso tra 1 e 15 fino a un punto decimale. Questo è fornito dal tuo hotspot o dal produttore dell'antenna.",
+      desc: "Un valore compreso tra 1 e 15 fino a un punto decimale. Questo è fornito dal tuo hotspot o dal produttore dell'antenna.",
       title: 'Antenna TX / RX Gain',
     },
     onboarding: {
@@ -186,8 +184,7 @@ export default {
     enable_location: {
       cancel: 'No grazie, lo imposterò in seguito',
       next: 'Richiesta permessi',
-      p_1:
-        'Per prima cosa, ti chiederemo i permessi per accedere alla posizione del tuo telefono.',
+      p_1: 'Per prima cosa, ti chiederemo i permessi per accedere alla posizione del tuo telefono.',
       subtitle:
         'Dobbiamo impostare una posizione per Hotspot. Possiamo usare il tuo telefono per farlo.',
       title: 'Imposta posizione \nHotspot',
@@ -250,13 +247,11 @@ export default {
     },
     pair: {
       alert_ble_off: {
-        body:
-          "Per iniziare l'accoppiamento, accendi il Bluetooth. Tieni acceso il Bluetooth finché non completi la registrazione.",
+        body: "Per iniziare l'accoppiamento, accendi il Bluetooth. Tieni acceso il Bluetooth finché non completi la registrazione.",
         title: 'Abilita Bluetooth',
       },
       alert_no_permissions: {
-        body:
-          'ResIOT Helium Hotspot necessita dei permessi per usare il Bluetooth. Puoi abilitare i permessi del Bluetooth nelle Impostazioni.',
+        body: 'ResIOT Helium Hotspot necessita dei permessi per usare il Bluetooth. Puoi abilitare i permessi del Bluetooth nelle Impostazioni.',
         title: 'Autorizza Bluetooth',
       },
       scan: 'Cerca il mio Hotspot',

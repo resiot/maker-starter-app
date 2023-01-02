@@ -15,14 +15,12 @@ const ResIOTX1BLE = {
       internal: [
         {
           title: 'Step 1',
-          body:
-            'If your hotspot is turned off, go to the next step. If your hotspot is turned on, turn it off by removing the power supply and wait 10 seconds.',
+          body: 'If your hotspot is turned off, go to the next step. If your hotspot is turned on, turn it off by removing the power supply and wait 10 seconds.',
           button: 'Next Step',
         },
         {
           title: 'Step 2',
-          body:
-            'Now turn on your hotspot and wait until the 3 top LEDs blink together, it takes about 60 seconds since the hotspot is turned on, then tap the "Scan" button to start the hotspot search.',
+          body: 'Now turn on your hotspot and wait until the 3 top LEDs blink together, it takes about 60 seconds since the hotspot is turned on, then tap the "Scan" button to start the hotspot search.',
           button: 'Scan',
         },
       ],
@@ -35,14 +33,12 @@ const ResIOTX1BLE = {
       internal: [
         {
           title: 'Step 1',
-          body:
-            "Se il tuo hotspot è spento, vai allo step successivo. Se il tuo hotspot è acceso, spegnilo rimuovendo l'alimentazione e attendi 10 secondi.",
+          body: "Se il tuo hotspot è spento, vai allo step successivo. Se il tuo hotspot è acceso, spegnilo rimuovendo l'alimentazione e attendi 10 secondi.",
           button: 'Avanti',
         },
         {
           title: 'Step 2',
-          body:
-            'Ora accendi il tuo hotspot e attendi finché i LED rosso e giallo lampeggiano insieme, poi premi sul tasto "Scansiona" per avviare la ricerca dell\'hotspot.',
+          body: 'Ora accendi il tuo hotspot e attendi finché i LED rosso e giallo lampeggiano insieme, poi premi sul tasto "Scansiona" per avviare la ricerca dell\'hotspot.',
           button: 'Scansiona',
         },
       ],
